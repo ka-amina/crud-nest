@@ -1,0 +1,14 @@
+{
+  // Extend the @opentecc TypeScript configuration for NestJS
+  "extends": "@opentecc/nestjs-tooling/typescript/nestjs.json",
+  "compilerOptions": {
+    // Set the base URL for module resolution
+    "baseUrl": ".",
+    // Specify the root directory for source files
+    "rootDir": ".",
+    // Define the output directory for compiled files
+    "outDir": "./dist"
+  },
+  // Exclude directories from compilation
+  "exclude": ["node_modules", "test", "dist"]
+}
