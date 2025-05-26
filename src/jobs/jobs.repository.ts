@@ -25,7 +25,6 @@ export class JobsRepository {
 }
 
   async findPaginated(page = 1, limit = 10): Promise<{ data: Job[]; total: number }> {
-    try {
       const offset = (page - 1) * limit;
     const [data, total] = await this.repository.findAndCount({}, {
       limit,
@@ -35,12 +34,6 @@ export class JobsRepository {
     });
 
     return { data, total };
-    } catch (error) {
-      if(page>10){
-      throw ServiceError.Conflict("there is an error ");
-      }
-    }
-    
   }
 
   async findById(id: string): Promise<Job | null> {
